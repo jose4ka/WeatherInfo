@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+<!--    CITY NAME-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/city_name_p"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvWeatherName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="///"
+        android:textSize="30dp" />
+
+<!--    CITY TEMP-->
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/temp_p"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvWeatherTemp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="///"
+        android:textSize="30dp" />
+
+<!--   CITY MAX TEMP -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/max_temp_p"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvWeatherMaxT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="///"
+        android:textSize="30dp" />
+
+<!--    CITY MIN TEMP-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/min_temp_p"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvWeatherMinT"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="///"
+        android:textSize="30dp" />
+
+    <!--    HUMIDILITY-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/humidity_p"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvWeatherHumidility"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="///"
+        android:textSize="30dp" />
+
+    <!--    PRESSURE-->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/pressure_p"
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/tvWeatherPressure"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="///"
+        android:textSize="30dp" />
+
+
+
+
+
+</LinearLayout>
