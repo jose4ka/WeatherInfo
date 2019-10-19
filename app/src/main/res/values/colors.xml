@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0248A7</color>
-    <color name="colorPrimaryDark">#002A74</color>
+    <color name="colorPrimary">#5474D6</color>
+    <color name="colorPrimaryDark">#3152B4</color>
     <color name="colorAccent">#D81B60</color>
+    <color name="sosBack">#FF0000</color>
+    <color name="colorText">#3D3D3D</color>
+    <color name="mainBackground">#E2E2E2</color>
+    <color name="colorTransparent">#00FFFFFF</color>
+    <color name="colorTextWhite">#F3F3F3</color>
+    <color name="colorLogo">#EE3F3F</color>
+    <color name="colorBorder">#6D6D6D</color>
+    <color name="colorBlue">#2196f3</color>
+    <color name="colorGreen">#4CAF50</color>
+    <color name="colorWhite">#FFF</color>
+    <color name="colorGrey">#DADADA</color>
+    <color name="colorPink">#AA54BD</color>
+    <color name="colorRed">#f44336</color>
+    <color name="colorCard">#ECECEC</color>
+    <color name="colorCardWindow">#FAFAFA</color>
+    <color name="colorNavigationBlack">#BBBBBB</color>
+    <color name="colorNavigationBlue">#2196F3</color>
+    <color name="colorButtonNotActive">#B9B9B9</color>
 </resources>

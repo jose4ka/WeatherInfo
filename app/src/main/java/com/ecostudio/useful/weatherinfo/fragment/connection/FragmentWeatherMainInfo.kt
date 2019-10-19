@@ -1,10 +1,9 @@
-package com.ecostudio.useful.weatherinfo.fragment
+package com.ecostudio.useful.weatherinfo.fragment.connection
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.ecostudio.useful.weatherinfo.R
 import kotlinx.android.synthetic.main.fragment_weather_main_info.view.*
@@ -22,14 +21,14 @@ class FragmentWeatherMainInfo : Fragment(){
 
         var view = inflater.inflate(R.layout.fragment_weather_main_info, container, false)
 
-        initializeElements(view)
-
+        initializeScreenElements(view)
 
         return view
     }
 
 
-    fun initializeElements(view: View){
+    //Инициализация элементов экрана
+    fun initializeScreenElements(view: View){
         view.tvWeatherName.text = arguments?.getString("name", "null")
         view.tvWeatherHumidility.text = arguments?.getInt("humidity").toString()
         view.tvWeatherPressure.text = arguments?.getInt("pressure").toString()

@@ -2,7 +2,7 @@
     <string name="app_name">WeatherInfo</string>
     <string name="api_key">64f35fc9dd7da2b5094e25cb09aef556</string>
 
-<!-- Main weather information    -->
+    <!-- Main weather information    -->
     <string name="humidity_p">Humidity:</string>
     <string name="humidity">Humidity</string>
 
@@ -25,4 +25,11 @@
     <string name="item_settings">Settings</string>
     <string name="item_about_app">AboutApp</string>
 
+    <string-array name="array_units">
+        <item id="@+id/unit_metric">metric</item>
+        <item id="@+id/unit_imperial">imperial</item>
+    </string-array>
+
+    <string name="defaul_city">Moscow</string>
+    <string name="defaul_units">metric</string>
 </resources>
