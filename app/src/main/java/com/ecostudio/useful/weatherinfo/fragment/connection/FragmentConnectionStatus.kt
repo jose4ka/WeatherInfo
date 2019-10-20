@@ -1,19 +1,14 @@
-package com.ecostudio.useful.weatherinfo.fragment
+package com.ecostudio.useful.weatherinfo.fragment.connection
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
 import com.ecostudio.useful.weatherinfo.R
-import com.ecostudio.useful.weatherinfo.fragment.connection.ConnectionStatus
-import com.ecostudio.useful.weatherinfo.fragment.connection.FragmentWeatherMainInfo
-import kotlinx.android.synthetic.main.fragment_connection_status.*
 import kotlinx.android.synthetic.main.fragment_connection_status.view.*
-import java.lang.Exception
-import kotlin.concurrent.thread
 
 class FragmentConnectionStatus:Fragment() {
 
@@ -26,11 +21,8 @@ class FragmentConnectionStatus:Fragment() {
     ): View? {
         var view = inflater.inflate(R.layout.fragment_connection_status, container, false)
 
-        var status = arguments?.getSerializable("connection_status") as ConnectionStatus
-
-        if(status != null){
-            selectView(view, status)
-        }
+        checkBundle(view)
+        setScaleAnimation(view.connectionLayout)
 
         return view
     }
@@ -46,28 +38,36 @@ class FragmentConnectionStatus:Fragment() {
     }
 
 
-    /*
-    * TODO: Make resources strings*/
+    private fun checkBundle(view: View){
+        var status = arguments?.getSerializable("connection_status") as ConnectionStatus
+
+        if(status != null){
+            selectView(view, status)
+        }
+    }
+
     private fun selectView(view: View, status: ConnectionStatus){
         when(status){
             ConnectionStatus.IS_CONNECTED -> {
                 showSwitcher(true, view)
-                view.tvConnectionStatus.text= "Successful loaded!"
+                view.tvConnectionStatus.text= resources.getString(R.string.loading_successful)
+                view.tvConnectionStatus.setTextColor(resources.getColor(R.color.colorGreen))
             }
             ConnectionStatus.IS_NOT_CONNECTED -> {
-                view.tvConnectionStatus.text = "Can't download data..."
+                view.tvConnectionStatus.text = resources.getString(R.string.loading_failed)
+                view.tvConnectionStatus.setTextColor(resources.getColor(R.color.colorRed))
                 view.statusSwitcher.showNext()
             showSwitcher(true, view)
             }
             ConnectionStatus.LOADING -> {
-                view.tvConnectionStatus.text = "Loading..."
+                view.tvConnectionStatus.text = resources.getString(R.string.loading)
+                view.tvConnectionStatus.setTextColor(resources.getColor(R.color.colorText))
                 showProgressBar(true, view)}
             ConnectionStatus.GONE -> {
                 view.connectionLayout.visibility = View.GONE
 
             }
         }
-
     }
 
 
@@ -84,7 +84,10 @@ class FragmentConnectionStatus:Fragment() {
     }
 
 
-
+    private fun setScaleAnimation(view: View){
+        var anim:Animation = AnimationUtils.loadAnimation(context, R.anim.animation_scale)
+        view.startAnimation(anim)
+    }
 
 
 

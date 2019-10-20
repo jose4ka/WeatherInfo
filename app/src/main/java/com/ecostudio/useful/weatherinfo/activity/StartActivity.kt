@@ -23,7 +23,7 @@ class StartActivity : AppCompatActivity() {
     }
 
 
-    //Запускает нужную активность, в зависимости от переданного значения
+    //Starts next activity, settings or main
     private fun nextActivity(result: Boolean){
         if(!result){
             var settings = Intent(this, ActivitySettings::class.java)

@@ -2,10 +2,13 @@
 <resources>
     <color name="colorPrimary">#5474D6</color>
     <color name="colorPrimaryDark">#3152B4</color>
+    <color name="colorPrimaryNight">#141414</color>
+    <color name="colorPrimaryDarkNight">#2B2B2B</color>
+    <color name="backgroundMenu">#FDFDFD</color>
     <color name="colorAccent">#D81B60</color>
     <color name="sosBack">#FF0000</color>
     <color name="colorText">#3D3D3D</color>
-    <color name="mainBackground">#E2E2E2</color>
+    <color name="mainBackground">#F3F3F3</color>
     <color name="colorTransparent">#00FFFFFF</color>
     <color name="colorTextWhite">#F3F3F3</color>
     <color name="colorLogo">#EE3F3F</color>
@@ -21,4 +24,5 @@
     <color name="colorNavigationBlack">#BBBBBB</color>
     <color name="colorNavigationBlue">#2196F3</color>
     <color name="colorButtonNotActive">#B9B9B9</color>
+    <color name="colorYellow">#FFEB3B</color>
 </resources>

@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">WeatherInfo</string>
+    <string name="api_key">64f35fc9dd7da2b5094e25cb09aef556</string>
+
+    <!-- Main weather information    -->
+    <string name="humidity_p">Влажность:</string>
+    <string name="humidity">Влажность</string>
+
+    <string name="pressure_p">Давление:</string>
+    <string name="pressure">Давление</string>
+
+    <string name="temp_p">Температура:</string>
+    <string name="temp">Температура</string>
+
+    <string name="max_temp_p">Максимальная температура:</string>
+    <string name="max_temp">Максимальная температура</string>
+
+    <string name="min_temp_p">Минимальная температура:</string>
+    <string name="min_temp">Минимальная температура</string>
+
+    <string name="city_name_p">Название города:</string>
+    <string name="city_name">Название города</string>
+
+
+    <string name="item_settings">Настройки</string>
+    <string name="item_about_app">О приложении</string>
+
+    <string-array name="array_units">
+        <item id="@+id/unit_metric">metric</item>
+        <item id="@+id/unit_imperial">imperial</item>
+    </string-array>
+
+    <string-array name="array_units_t">
+        <item id="@+id/unit_metric">°С</item>
+        <item id="@+id/unit_imperial">°F</item>
+    </string-array>
+
+    <string name="millimeters">мм</string>
+
+    <string name="defaul_city">Moscow</string>
+    <string name="defaul_units">metric</string>
+
+    <string name="loading_successful">Данные успешно загружены!</string>
+    <string name="loading_failed">Не удалось загрузить данные!</string>
+    <string name="loading">Загрузка...</string>
+
+    <string name="check_internet_connection">Проверьте соединение с интернетом или попробуйте позже...</string>
+
+    <string name="enter_city_name">Введите название города!</string>
+
+    <string name="your_city">Город</string>
+    <string name="your_city_p">Город:</string>
+
+    <string name="units">Единицы измерения</string>
+    <string name="units_p">Единицы измерения:</string>
+
+    <string name="save">Сохранить</string>
+
+    <string name="bar_settings">Настройки</string>
+    <string name="bar_main">Погода</string>
+</resources>

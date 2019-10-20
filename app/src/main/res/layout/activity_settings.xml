@@ -5,34 +5,40 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.ecostudio.useful.weatherinfo.activity.ActivitySettings"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/backgroundMenu">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Main city"/>
+        android:text="@string/city_name_p"
+        android:textColor="@color/colorText"
+        android:layout_margin="5dp"
+        />
 
     <EditText
         android:id="@+id/etSettingsMainCity"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@drawable/lout_bg"
+        android:padding="10dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Units"/>
+        android:text="@string/units_p"
+        android:textColor="@color/colorText"
+        android:layout_margin="5dp"/>
 
     <Spinner
         android:id="@+id/unitsSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:entries="@array/array_units"/>
-
-    <Button
-        android:id="@+id/btnSave"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="save"/>
+        android:entries="@array/array_units"
+        android:layout_margin="5dp"
+        android:background="@drawable/lout_bg"
+        android:padding="10dp"/>
 
 
 </LinearLayout>

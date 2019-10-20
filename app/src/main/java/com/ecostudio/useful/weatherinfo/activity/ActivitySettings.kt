@@ -10,6 +10,7 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.SearchView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatDelegate
 import com.ecostudio.useful.weatherinfo.R
 import kotlinx.android.synthetic.main.activity_settings.*
 import java.text.FieldPosition
@@ -20,22 +21,23 @@ class ActivitySettings : AppCompatActivity(){
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        checkTheme()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
-        initializeElements()
         loadSettings()
     }
 
-    //Создаём action bar
+    //Create action bar
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.settings_bar, menu)
         return true
     }
 
-    //Обработчик нажатий на элементы бара
+    //Action bar listener
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when(item.itemId){
             R.id.action_settings_back -> {
+                save()
                 var restartApp = Intent(this, StartActivity::class.java)
                 startActivity(restartApp)
             }
@@ -44,15 +46,26 @@ class ActivitySettings : AppCompatActivity(){
     }
 
 
-    //Инициализируются элементы экрана
-    private fun initializeElements(){
-        btnSave.setOnClickListener { save(); }
+    fun checkTheme(){
+        val settingsPreferences = getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
+        var isNightModeEnadled = settingsPreferences.getBoolean("NIGHT_MODE", false)
+
+        if(isNightModeEnadled){
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+            setTheme(R.style.AppTheme)
+        }
+        else{
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+            setTheme(R.style.AppThemeNight)
+        }
     }
 
+
+
     /*
-    Сохраняем переданные данные
-    units - само название единиц измерений
-    units_points - номер выбранной позиции (нужен для загрузки настроек)
+    Save data
+    units - name of units
+    units_points - position of selected element (need for load settings)
      */
     private fun putUnits (units:String, position: Int){
         val settingsPreferences = getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
@@ -62,7 +75,7 @@ class ActivitySettings : AppCompatActivity(){
         editor.apply()
     }
 
-    //Сохраняем город в настройки
+    //Save city is shared preferences
     private fun putCity (city:String){
         val settingsPreferences = getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
         val editor = settingsPreferences.edit()
@@ -71,19 +84,22 @@ class ActivitySettings : AppCompatActivity(){
     }
 
 
-    //Проверяем поле ввода на пустоту, и сохраняем
+    //Check field for void, and save data
     private fun save(){
         if(!etSettingsMainCity.text.toString().isEmpty()){
             putCity(etSettingsMainCity.text.toString())
             putUnits(unitsSpinner.selectedItem.toString(), unitsSpinner.selectedItemPosition)
         }
-        else{Toast.makeText(this, "Enter city name!", Toast.LENGTH_SHORT).show()}
+        else{Toast.makeText(this, R.string.enter_city_name, Toast.LENGTH_SHORT).show()}
     }
 
+
+
+
     /*
-    Загружаем сохраненные значения
-    Для города - string
-    Для спиннера - Int, т.к. мы устанавливаем позицию выбранного элемента
+    Load saved data
+    For city - string
+    For spinner - Int, cause ve set selected position
      */
     private fun loadSettings(){
         var settingsPreferences = getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
@@ -91,7 +107,7 @@ class ActivitySettings : AppCompatActivity(){
         var city = settingsPreferences.getString("main_city", null)
         var units = settingsPreferences.getInt("units_position", 0)
 
-        //Устанавливаем элементам экрана нужные значения
+        //Set values for screen elements
         etSettingsMainCity.setText(city)
         unitsSpinner.setSelection(units)
     }

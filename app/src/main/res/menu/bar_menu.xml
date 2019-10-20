@@ -34,6 +34,13 @@
         android:title="ITEM"
         app:showAsAction="always"/>
 
+    <item
+        android:id="@+id/action_dark_mode"
+        android:icon="@drawable/night_mode_selector"
+        android:title="ITEM"
+        app:showAsAction="always"
+        />
+
 
 <!--    <item android:id="@+id/action_settings"-->
 <!--        android:orderInCategory="1"-->
