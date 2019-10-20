@@ -14,7 +14,7 @@ class StartActivity : AppCompatActivity() {
         nextActivity(checkSettingsFile())
     }
 
-    //Проверка по большей степени идёт по городу, т.к. по нему идёт вся загрузка
+    //Check city variable, cause by that makes download
     private fun checkSettingsFile():Boolean{
         var settingsPreferences = getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
         var city = settingsPreferences.getString("main_city", null)

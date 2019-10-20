@@ -1,14 +1,11 @@
 package com.ecostudio.useful.weatherinfo.activity
 
-import android.app.Application
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.net.ConnectivityManager
 import android.os.AsyncTask
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -24,11 +21,6 @@ import retrofit2.Callback
 import retrofit2.Response
 import com.ecostudio.useful.weatherinfo.fragment.FragmentWeatherMainInfo
 import java.lang.Exception
-import android.content.res.Resources.Theme
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 
 
 class MainActivity : AppCompatActivity() {
@@ -37,13 +29,14 @@ class MainActivity : AppCompatActivity() {
     val COUNTER_TAG = "COUNTER_TAG"
     val NETWORK_TAG = "NETWORK_TAG"
 
-    var onScreen:Boolean = false
+    var onScreen:Boolean = false // For fragmentTransaction
 
     var lCityName: String = "" //Load from shared preferences
     var lUnits: String = "" //Load from shared preferences
 
-    var canRemoveConnectionBar:Boolean = false
-    var isNightModeEnadled:Boolean = false
+
+    var canRemoveConnectionBar:Boolean = false //For counter thread
+    var isNightModeEnabled:Boolean = false //For change appTheme
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -84,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 val settingsPreferences = getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
                 val editor = settingsPreferences.edit()
 
-                if(isNightModeEnadled){
+                if(isNightModeEnabled){
                     editor.putBoolean("NIGHT_MODE", false)
                     editor.apply()
                 }
@@ -100,11 +93,11 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    fun checkTheme(){
+    private fun checkTheme(){
         val settingsPreferences = getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
-        isNightModeEnadled = settingsPreferences.getBoolean("NIGHT_MODE", false)
+        isNightModeEnabled = settingsPreferences.getBoolean("NIGHT_MODE", false)
 
-        if(isNightModeEnadled){
+        if(isNightModeEnabled){
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             setTheme(R.style.AppTheme)
         }
@@ -116,7 +109,7 @@ class MainActivity : AppCompatActivity() {
 
 
 
-    fun restartActivity(){
+    private fun restartActivity(){
         var intent = Intent(this, MainActivity::class.java)
         canRemoveConnectionBar = false
         onScreen = false

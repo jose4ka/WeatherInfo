@@ -46,7 +46,12 @@ class ActivitySettings : AppCompatActivity(){
     }
 
 
-    fun checkTheme(){
+
+
+    /*
+    That method check theme settings from shared preferences
+     */
+    private fun checkTheme(){
         val settingsPreferences = getSharedPreferences(SETTINGS_PREFERENCES, Context.MODE_PRIVATE)
         var isNightModeEnadled = settingsPreferences.getBoolean("NIGHT_MODE", false)
 
@@ -59,6 +64,7 @@ class ActivitySettings : AppCompatActivity(){
             setTheme(R.style.AppThemeNight)
         }
     }
+
 
 
 

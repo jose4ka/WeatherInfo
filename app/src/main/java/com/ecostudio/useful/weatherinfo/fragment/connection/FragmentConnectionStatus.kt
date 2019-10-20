@@ -22,7 +22,7 @@ class FragmentConnectionStatus:Fragment() {
         var view = inflater.inflate(R.layout.fragment_connection_status, container, false)
 
         checkBundle(view)
-        setScaleAnimation(view.connectionLayout)
+        setScaleAnimation(view.connectionLayout) // That need for main layout of this fragment
 
         return view
     }
@@ -37,7 +37,7 @@ class FragmentConnectionStatus:Fragment() {
         }
     }
 
-
+    //Check data in bundle
     private fun checkBundle(view: View){
         var status = arguments?.getSerializable("connection_status") as ConnectionStatus
 
@@ -45,6 +45,7 @@ class FragmentConnectionStatus:Fragment() {
             selectView(view, status)
         }
     }
+
 
     private fun selectView(view: View, status: ConnectionStatus){
         when(status){
@@ -84,6 +85,7 @@ class FragmentConnectionStatus:Fragment() {
     }
 
 
+    //Apply scale animation to screen element
     private fun setScaleAnimation(view: View){
         var anim:Animation = AnimationUtils.loadAnimation(context, R.anim.animation_scale)
         view.startAnimation(anim)
